@@ -1673,7 +1673,7 @@ class OneCGateway extends Controller{
 			left join `" . DB_PREFIX . "order_product` op on o.order_id = op.order_id
 			left join `" . DB_PREFIX . "order_total` ot on o.order_id = ot.order_id and ot.code = 'shipping'
 			left join `" . DB_PREFIX . "order_total` ot2 on o.order_id = ot2.order_id and ot2.code = 'coupon'
-			where o.is_new = 1;
+			where o.is_new = 1 AND o.order_status_id != 0;
 		");
 
 		$result = $query->rows;
